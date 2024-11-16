@@ -73,9 +73,9 @@ contract FlareValidation {
 
         DatasetInfo memory _dbInfo = abi.decode(dbInfoResponse.responseBody.abi_encoded_data, (DatasetInfo));
 
-        if (processedAttestations[_dbInfo.id]) {
-            revert AttestationAllreadyProcessed();
-        }
+        // if (processedAttestations[_dbInfo.id]) {
+        //     revert AttestationAllreadyProcessed();
+        // }
 
         require(verifiedContributions[_dbInfo.dataHash], "Contribution hasn't been verified by the TEE");
 
