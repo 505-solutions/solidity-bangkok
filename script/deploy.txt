@@ -1,0 +1,12 @@
+forge script script/Deployment.s.sol:DeployFlareValidationScript \
+--chain-id 114 --rpc-url https://coston2-api.flare.network/ext/C/rpc --broadcast
+
+
+
+forge verify-contract \
+    --chain-id 114 \
+    --watch \
+    --verifier blockscout \
+    --verifier-url https://coston2-explorer.flare.network/api \
+    0xd000c22719930511acc1cd6482f5a5b944e1ec01 \
+   src/FlareValidation.sol:FlareValidation
