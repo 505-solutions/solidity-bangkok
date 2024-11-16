@@ -8,5 +8,5 @@ forge verify-contract \
     --watch \
     --verifier blockscout \
     --verifier-url https://coston2-explorer.flare.network/api \
-    0xd000c22719930511acc1cd6482f5a5b944e1ec01 \
+    0xf17086ee7e7827B3A855f6D35f280CFbF5920EAC \
    src/FlareValidation.sol:FlareValidation

@@ -107,7 +107,7 @@ contract FlareValidation {
             (uint256 flrUsdPrice, int8 decimals, uint64 timestamp) = getFlrUsdPrice();
 
             // Calculate the amount of FLR to send
-            uint256 flrAmount = (payoutAmount * 1e10 * 10 ** uint8(decimals)) / flrUsdPrice;
+            uint256 flrAmount = (payoutAmount * 1e8 * 10 ** uint8(decimals)) / flrUsdPrice;
 
             // Send FLR
             (bool success,) = contributor.call{value: flrAmount}("");
@@ -116,4 +116,10 @@ contract FlareValidation {
             require(success, "Transfer failed");
         }
     }
+
+    // For receiving plain ETH transfers
+    receive() external payable {}
+
+    // For receiving ETH with data
+    fallback() external payable {}
 }
